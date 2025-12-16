@@ -78,6 +78,14 @@ storage:
 
 radicale:
   enabled: true
+  additional_proxy_yaml: |
+    # Radicale web UI
+          - endpoint: /caldav/.web/
+            backend: http://radicale:5232/
+            unprotected: true
+            skip_x_access_token: true
+            additional_headers:
+              - X-Script-Name: /caldav
   data_storage:
     type: ix_volume
     ix_volume_config:

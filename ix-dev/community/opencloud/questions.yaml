@@ -793,6 +793,16 @@ questions:
             schema:
               type: boolean
               default: false
+          - variable: additional_proxy_yaml
+            label: Additional settings appended to proxy.yaml
+            description: |
+              ⚠️ When enabling radicale, the file `proxy.yaml` in the OpenCloud Config Storage will be overwritten.
+              Include your custom proxy configuation here, to be appended to `proxy.yaml`.
+            show_if: [["enabled", "=", true]]
+            schema:
+              type: string
+              required: false
+              default: ""
           - variable: data_storage
             label: Radicale (CalDAV, CardDAV) data storage
             show_if: [["enabled", "=", true]]
@@ -907,6 +917,8 @@ questions:
                             description: opencloud
                           - value: tika
                             description: tika
+                          - value: radicale
+                            description: radicale
   - variable: resources
     label: ""
     group: Resources Configuration
